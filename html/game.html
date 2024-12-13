@@ -1,0 +1,45 @@
+<!-- /** Auteur : LiLian Grenier **/ -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Candal&family=Press+Start+2P&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <title>Hangman-WEB</title>
+</head>
+<body>
+    <div class="titres">
+        Hangman-WEB
+    </div>
+    <div id="pseudoniveau">
+        <div class="username">
+            Pseudo : <span>{{.Pseudo}}</span>
+        </div>
+        <div class="username">
+            Niveau : <span>{{.Difficulty}}</span>
+        </div>
+    </div>
+    <div id="mot">
+        {{.Masked}}
+    </div>
+    <div class="lettres">
+        <form action="/hangman" method="POST"class="form-hangman" required>
+            <input type="text" name="lettre" placeholder="Entrez votre lettre" class="lettre">
+            <button type="submit" class="bouton">Envoyer</button>
+        </form>
+    </div>
+
+    <div class="lettres">
+        <form action="/save" method="POST" class="form-save" required>
+            <button type="submit" class="bouton">Sauvegarder</button>
+        </form>
+    </div>
+
+
+    <div id="hp" style="background-image: url('/static/{{.AttemptsLeft}}.png');">
+    </div>
+</body>
+</html>
